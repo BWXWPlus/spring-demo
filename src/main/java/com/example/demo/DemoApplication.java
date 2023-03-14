@@ -15,8 +15,6 @@ public class DemoApplication {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         ConfigurableApplicationContext run = SpringApplication.run(DemoApplication.class, args);
-        System.out.println(run);
-
         //因为singletonObjects是私有的，所以通过反射，获取DefaultSingletonBeanRegistry类中的名为singletonObjects的属性。
         Field singletonObjects = DefaultSingletonBeanRegistry.class.getDeclaredField("singletonObjects");
         //设置私有属性在类外面允许被访问
@@ -28,7 +26,7 @@ public class DemoApplication {
         //输出key value
         //map.forEach((k,v)->System.out.println(k + "=" + v));
        // EnvironmentCapable
-        System.out.println(run.getEnvironment().getProperty("server.port"));
+       // System.out.println(run.getEnvironment().getProperty("server.port"));
     }
 
 }
